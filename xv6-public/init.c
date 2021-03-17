@@ -20,13 +20,15 @@ main(void)
   dup(0);  // stderr
 
   for(;;){
-    printf(1, "init: starting sh\n");
+    printf(1, "Supercalifragilistico\n");
     pid = fork();
     if(pid < 0){
       printf(1, "init: fork failed\n");
       exit();
     }
     if(pid == 0){
+		//1) Cuando cambio ls  realiza un loop infinito
+		//2) noexisteprograma realiza un loop infinito, mostrando exec sh failed
       exec("sh", argv);
       printf(1, "init: exec sh failed\n");
       exit();
